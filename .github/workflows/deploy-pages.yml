@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+# Deploy manual saja — jalankan lewat tab Actions → "Run workflow"
+on:
+  workflow_dispatch:
+
+# Izin yang dibutuhkan GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Hanya satu deploy berjalan pada satu waktu
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint (JS, CSS, HTML)
+        run: |
+          npx eslint "js/**/*.js"
+          npx stylelint "css/**/*.css"
+          npx htmlhint "**/*.html"
+
+      - name: Build public folder
+        run: npm run build:public
+
+      - name: Copy CNAME into public (custom domain)
+        run: |
+          if [ -f CNAME ]; then cp CNAME public/CNAME; fi
+          touch public/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
