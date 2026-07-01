@@ -5,3 +5,6 @@ package-lock.json
 dist
 public
 .claude/settings.local.json
+
+# graphify knowledge graph output (rebuilt locally per machine)
+graphify-out/

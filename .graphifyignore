@@ -1,0 +1,29 @@
+# graphify ignore — also respects .gitignore
+# Build artifacts & deps
+node_modules/
+dist/
+.git/
+.claude/
+.github/
+
+# Heavy media assets (not useful as graph nodes)
+assets/
+*.webp
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.mov
+*.gif
+
+# Lockfiles
+package-lock.json
+
+# Docs & HTML need LLM semantic extraction (API key).
+# Code-only graph for now — set an API key and remove these to include them.
+README.md
+AGENTS.md
+PROJECT_BOARD.md
+CLAUDE.md
+index.html
+dashboard.html
