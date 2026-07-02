@@ -24,11 +24,11 @@ Legenda: ✅ selesai · 🔄 sedang dikerjakan · ⬜ belum · ⏸️ ditunda
 
 - ⬜ **Orang tua Intan** — ganti "Bapak/Ibu lorem ipsum" di section `#bride`
 - ⬜ **No. rekening BCA** — ganti `1234567891234` (teks + atribut `data-copy`)
-- ⬜ **No. HP / e-wallet gift** — ganti `0812345678` (teks + `data-copy`)
+- ✅ **No. HP / e-wallet gift** — `08221884277` (teks + `data-copy`)
 - ⬜ **Foto mempelai** — `assets/images/cowo.webp` (Fadillah), `cewe.webp` (Intan)
 - ⬜ **Foto cover / hero** — `assets/images/bg.webp`
 - ⬜ **Narasi Kisah Cinta** — tulis ulang cerita asli (nama sudah otomatis benar)
-- ⬜ **Konfirmasi jam Akad & Resepsi** (sekarang default 10.00 / 13.00 WIB)
+- ✅ **Jam Akad & Resepsi** — Akad 08.00 WIB, Resepsi 11.00 WIB (countdown `data-time` disesuaikan ke 08.00)
 
 ## 🟡 To Do — Media & aset
 
