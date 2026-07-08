@@ -4,6 +4,17 @@
 html {
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
+
+    /* Tema Biru-Emas: primary + dark/black override */
+    --bs-primary: var(--wed-primary);
+    --bs-primary-rgb: var(--wed-primary-rgb);
+    --bs-link-color: var(--wed-accent);
+    --bs-link-color-rgb: var(--wed-accent-rgb);
+    --bs-link-hover-color: var(--wed-accent-bright);
+    --bs-dark: var(--wed-dark);
+    --bs-dark-rgb: var(--wed-dark-rgb);
+    --bs-black: var(--wed-darker);
+    --bs-black-rgb: var(--wed-darker-rgb);
 }
 
 .with-scrollbar {
@@ -13,6 +24,7 @@ html {
 
 .font-esthetic {
     font-family: 'Sacramento', cursive !important;
+    color: var(--wed-accent-bright) !important;
 }
 
 .font-arabic {
@@ -28,7 +40,7 @@ html {
 }
 
 html[data-bs-theme="dark"] .btn-transparent {
-    background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
+    background-color: rgba(var(--wed-dark-rgb), 0.55) !important;
     backdrop-filter: blur(0.5rem);
 }
 
@@ -51,16 +63,16 @@ html[data-bs-theme="light"] .color-theme-svg {
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(0, 0, 0);
-    background-color: var(--bs-dark);
+    color: var(--wed-darker);
+    background-color: var(--wed-darker);
 }
 
 html[data-bs-theme="light"] .bg-light-dark {
-    background-color: rgb(var(--bs-light-rgb));
+    background-image: linear-gradient(180deg, #f5f9ff 0%, #e4eefb 100%);
 }
 
 html[data-bs-theme="dark"] .bg-light-dark {
-    background-color: rgb(var(--bs-dark-rgb));
+    background-image: linear-gradient(180deg, rgba(var(--wed-primary-rgb), 0.22) 0%, var(--wed-darker) 100%);
 }
 
 html[data-bs-theme="light"] .bg-white-black {
@@ -68,7 +80,8 @@ html[data-bs-theme="light"] .bg-white-black {
 }
 
 html[data-bs-theme="dark"] .bg-white-black {
-    background-color: rgb(var(--bs-black-rgb));
+    background-color: var(--wed-darker);
+    background-image: linear-gradient(160deg, var(--wed-dark) 0%, var(--wed-darker) 100%);
 }
 
 .bg-cover-home {
@@ -112,4 +125,105 @@ svg {
 
 .no-gap-bottom {
     margin-bottom: -0.75rem !important;
+}
+
+/* ===== Tema Biru-Emas (custom) ===== */
+:root {
+    --wed-primary: #1c4e80;
+    --wed-primary-rgb: 28, 78, 128;
+    --wed-primary-deep: #0d2a4a;
+    --wed-accent: #d4af37;
+    --wed-accent-rgb: 212, 175, 55;
+    --wed-accent-bright: #f4d160;
+    --wed-accent-bright-rgb: 244, 209, 96;
+    --wed-dark: #0a1a2f;
+    --wed-dark-rgb: 10, 26, 47;
+    --wed-darker: #050d1a;
+    --wed-darker-rgb: 5, 13, 26;
+}
+
+/* Teks utama putih agar jelas */
+html[data-bs-theme="dark"] body {
+    --bs-body-color: #ffffff;
+    --bs-body-color-rgb: 255, 255, 255;
+}
+
+html[data-bs-theme="dark"] .text-theme-auto {
+    color: #ffffff !important;
+}
+
+.text-theme-accent {
+    color: var(--wed-accent) !important;
+}
+
+/* Kartu info: dasar primary/dark dengan garis tepi aksen */
+html[data-bs-theme="light"] .bg-theme-auto {
+    background-image: linear-gradient(135deg, #f5f9ff 0%, #e4eefb 100%) !important;
+    border: 1px solid rgba(var(--wed-primary-rgb), 0.35);
+}
+
+html[data-bs-theme="dark"] .bg-theme-auto {
+    background-image: linear-gradient(135deg, rgba(var(--wed-primary-rgb), 0.5) 0%, rgba(var(--wed-darker-rgb), 0.9) 100%) !important;
+    border: 1px solid rgba(var(--wed-accent-rgb), 0.5);
+    color: #ffffff;
+}
+
+/* Overlay judul home */
+html[data-bs-theme="light"] .bg-overlay-auto {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(var(--wed-primary-rgb), 0.3) 100%) !important;
+    border: 1px solid rgba(var(--wed-accent-rgb), 0.4);
+}
+
+html[data-bs-theme="dark"] .bg-overlay-auto {
+    background-image: linear-gradient(135deg, rgba(var(--wed-primary-rgb), 0.6) 0%, rgba(var(--wed-darker-rgb), 0.65) 100%) !important;
+    border: 1px solid rgba(var(--wed-accent-rgb), 0.45);
+}
+
+/* Navbar */
+html[data-bs-theme="light"] .navbar {
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(var(--wed-primary-rgb), 0.2) 100%) !important;
+    border-top: 2px solid rgba(var(--wed-accent-rgb), 0.6);
+}
+
+html[data-bs-theme="dark"] .navbar {
+    background-image: linear-gradient(90deg, rgba(var(--wed-primary-rgb), 0.55) 0%, rgba(var(--wed-darker-rgb), 0.92) 100%) !important;
+    border-top: 2px solid rgba(var(--wed-accent-rgb), 0.6);
+}
+
+/* Nav: teks putih, aktif jadi aksen */
+html[data-bs-theme="dark"] .nav-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.nav-link.active,
+.nav-link.active i,
+.navbar .nav-link.active i {
+    color: var(--wed-accent-bright) !important;
+}
+
+/* Tombol outline */
+html[data-bs-theme="dark"] .btn-outline-auto {
+    --bs-btn-color: var(--wed-accent-bright);
+    --bs-btn-border-color: var(--wed-accent);
+    --bs-btn-hover-color: var(--wed-darker);
+    --bs-btn-hover-bg: var(--wed-accent);
+    --bs-btn-hover-border-color: var(--wed-accent);
+    --bs-btn-active-color: var(--wed-darker);
+    --bs-btn-active-bg: var(--wed-accent);
+    --bs-btn-active-border-color: var(--wed-accent);
+}
+
+html[data-bs-theme="light"] .btn-outline-auto {
+    --bs-btn-color: var(--wed-primary);
+    --bs-btn-border-color: var(--wed-primary);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--wed-primary);
+    --bs-btn-hover-border-color: var(--wed-primary);
+    --bs-btn-active-bg: var(--wed-primary);
+    --bs-btn-active-border-color: var(--wed-primary);
+}
+
+/* Animasi hati jadi aksen */
+.animate-love {
+    color: var(--wed-accent-bright) !important;
 }
