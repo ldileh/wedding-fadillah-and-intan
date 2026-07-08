@@ -4,6 +4,17 @@
 html {
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
+
+    /* Tema Putih–Merah: primary -> merah, dark/black -> maroon gelap */
+    --bs-primary: var(--wed-red);
+    --bs-primary-rgb: var(--wed-red-rgb);
+    --bs-link-color: var(--wed-red);
+    --bs-link-color-rgb: var(--wed-red-rgb);
+    --bs-link-hover-color: var(--wed-red-deep);
+    --bs-dark: var(--wed-dark);
+    --bs-dark-rgb: var(--wed-dark-rgb);
+    --bs-black: var(--wed-darker);
+    --bs-black-rgb: var(--wed-darker-rgb);
 }
 
 .with-scrollbar {
@@ -28,7 +39,7 @@ html {
 }
 
 html[data-bs-theme="dark"] .btn-transparent {
-    background-color: rgba(var(--bs-dark-rgb), 0.5) !important;
+    background-color: rgba(var(--wed-dark-rgb), 0.55) !important;
     backdrop-filter: blur(0.5rem);
 }
 
@@ -51,16 +62,16 @@ html[data-bs-theme="light"] .color-theme-svg {
 }
 
 html[data-bs-theme="dark"] .color-theme-svg {
-    color: rgb(0, 0, 0);
-    background-color: var(--bs-dark);
+    color: var(--wed-darker);
+    background-color: var(--wed-darker);
 }
 
 html[data-bs-theme="light"] .bg-light-dark {
-    background-color: rgb(var(--bs-light-rgb));
+    background-image: linear-gradient(180deg, #ffffff 0%, #fff2f3 100%);
 }
 
 html[data-bs-theme="dark"] .bg-light-dark {
-    background-color: rgb(var(--bs-dark-rgb));
+    background-image: linear-gradient(180deg, rgba(var(--wed-red-rgb), 0.18) 0%, var(--wed-darker) 100%);
 }
 
 html[data-bs-theme="light"] .bg-white-black {
@@ -68,7 +79,8 @@ html[data-bs-theme="light"] .bg-white-black {
 }
 
 html[data-bs-theme="dark"] .bg-white-black {
-    background-color: rgb(var(--bs-black-rgb));
+    background-color: var(--wed-darker);
+    background-image: linear-gradient(160deg, var(--wed-dark) 0%, var(--wed-darker) 100%);
 }
 
 .bg-cover-home {
@@ -112,4 +124,95 @@ svg {
 
 .no-gap-bottom {
     margin-bottom: -0.75rem !important;
+}
+
+/* ===== Tema Putih–Merah (custom) ===== */
+:root {
+    --wed-red: #c1272d;
+    --wed-red-rgb: 193, 39, 45;
+    --wed-red-bright: #e63946;
+    --wed-red-bright-rgb: 230, 57, 70;
+    --wed-red-soft: #f8d7da;
+    --wed-red-deep: #7a1418;
+    /* Pengganti "hitam": maroon sangat gelap, bukan hitam murni */
+    --wed-dark: #2b0708;
+    --wed-dark-rgb: 43, 7, 8;
+    --wed-darker: #1a0304;
+    --wed-darker-rgb: 26, 3, 4;
+}
+
+/* Warna teks utama saat dark memakai putih (bukan abu netral) */
+html[data-bs-theme="dark"] body {
+    --bs-body-color: #fff5f5;
+    --bs-body-color-rgb: 255, 245, 245;
+}
+
+.text-theme-red {
+    color: var(--wed-red) !important;
+}
+
+/* Kartu info: gradasi merah lembut */
+html[data-bs-theme="light"] .bg-theme-auto {
+    background-image: linear-gradient(135deg, #ffffff 0%, var(--wed-red-soft) 100%) !important;
+    border: 1px solid rgba(var(--wed-red-rgb), 0.15);
+}
+
+html[data-bs-theme="dark"] .bg-theme-auto {
+    background-image: linear-gradient(135deg, rgba(var(--wed-red-rgb), 0.35) 0%, rgba(var(--wed-darker-rgb), 0.85) 100%) !important;
+    border: 1px solid rgba(var(--wed-red-bright-rgb), 0.3);
+}
+
+/* Overlay judul di halaman home: sentuhan gradasi merah */
+html[data-bs-theme="light"] .bg-overlay-auto {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(var(--wed-red-rgb), 0.28) 100%) !important;
+}
+
+html[data-bs-theme="dark"] .bg-overlay-auto {
+    background-image: linear-gradient(135deg, rgba(var(--wed-red-rgb), 0.55) 0%, rgba(var(--wed-darker-rgb), 0.65) 100%) !important;
+}
+
+/* Navbar: aksen gradasi merah */
+html[data-bs-theme="light"] .navbar {
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.85) 0%, rgba(var(--wed-red-rgb), 0.18) 100%) !important;
+}
+
+html[data-bs-theme="dark"] .navbar {
+    background-image: linear-gradient(90deg, rgba(var(--wed-red-rgb), 0.5) 0%, rgba(var(--wed-darker-rgb), 0.9) 100%) !important;
+}
+
+/* Item nav: teks lebih terang, aktif jadi merah cerah */
+html[data-bs-theme="dark"] .nav-link {
+    color: rgba(255, 245, 245, 0.65) !important;
+}
+
+.nav-link.active,
+.nav-link.active i,
+.navbar .nav-link.active i {
+    color: var(--wed-red-bright) !important;
+}
+
+/* Tombol outline pakai aksen merah */
+html[data-bs-theme="dark"] .btn-outline-auto {
+    --bs-btn-color: var(--wed-red-soft);
+    --bs-btn-border-color: var(--wed-red-bright);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--wed-red);
+    --bs-btn-hover-border-color: var(--wed-red);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--wed-red);
+    --bs-btn-active-border-color: var(--wed-red);
+}
+
+html[data-bs-theme="light"] .btn-outline-auto {
+    --bs-btn-color: var(--wed-red);
+    --bs-btn-border-color: var(--wed-red);
+    --bs-btn-hover-bg: var(--wed-red);
+    --bs-btn-hover-border-color: var(--wed-red);
+    --bs-btn-active-bg: var(--wed-red);
+    --bs-btn-active-border-color: var(--wed-red);
+}
+
+/* Animasi hati jadi merah */
+.animate-love {
+    color: var(--wed-red-bright) !important;
 }
