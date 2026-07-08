@@ -6,6 +6,17 @@ html {
     -ms-overflow-style: none !important;
 
     /* Tema Merah-Emas: primary -> merah, dark/black -> maroon gelap */
+/* Token Material Design (shape & elevation) */
+    --md-radius-sm: 8px;
+    --md-radius: 12px;
+    --md-radius-lg: 16px;
+    --md-radius-xl: 28px;
+    --md-ease: cubic-bezier(0.2, 0, 0, 1);
+    --md-elev-1: 0 1px 2px rgba(0, 0, 0, 0.30), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+    --md-elev-2: 0 1px 2px rgba(0, 0, 0, 0.30), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+    --md-elev-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.30);
+
+
     --bs-primary: var(--wed-red);
     --bs-primary-rgb: var(--wed-red-rgb);
     --bs-link-color: var(--wed-gold);
@@ -228,4 +239,66 @@ html[data-bs-theme="light"] .btn-outline-auto {
 /* Animasi hati jadi emas */
 .animate-love {
     color: var(--wed-gold-bright) !important;
+}
+
+/* stylelint-disable no-descending-specificity */
+/* ===== Material Design layer ===== ===== */
+/* Bentuk (shape) & elevasi (elevation) mengikuti Material Design 3.
+   CSS-only agar berlaku di semua tema warna tanpa ubah markup.
+   Token --md-* didefinisikan di dalam html{} agar tidak duplikat :root. */
+
+/* --- Radius seragam MD (override kelas Bootstrap) --- */
+.rounded-3 { border-radius: var(--md-radius-sm) !important; }
+.rounded-4 { border-radius: var(--md-radius) !important; }
+.rounded-5 { border-radius: var(--md-radius-lg) !important; }
+.rounded-top,
+.rounded-top-4 { border-radius: var(--md-radius-lg) var(--md-radius-lg) 0 0 !important; }
+/* rounded-circle (avatar) & rounded-pill (chip/tombol) dibiarkan bulat: sesuai MD */
+
+/* --- Elevasi MD (override shadow Bootstrap) --- */
+.shadow-sm { box-shadow: var(--md-elev-1) !important; }
+.shadow { box-shadow: var(--md-elev-2) !important; }
+.shadow-lg { box-shadow: var(--md-elev-3) !important; }
+
+/* --- Motion & state layer pada elemen interaktif --- */
+html[data-bs-theme] .btn,
+html[data-bs-theme] .nav-link,
+html[data-bs-theme] .cursor-pointer,
+html[data-bs-theme] [onclick] {
+    transition: box-shadow 200ms var(--md-ease),
+                background-color 200ms var(--md-ease),
+                transform 150ms var(--md-ease),
+                filter 200ms var(--md-ease) !important;
+}
+
+/* State layer: sedikit terang saat hover, ditekan saat active (mirip ripple statis) */
+.btn:hover { filter: brightness(1.08); }
+.btn:active { transform: scale(0.97); }
+
+/* Kartu terangkat sedikit saat disentuh (elevation change MD) */
+html[data-bs-theme] .bg-theme-auto {
+    border-radius: var(--md-radius-lg) !important;
+    box-shadow: var(--md-elev-1);
+    transition: box-shadow 250ms var(--md-ease), transform 250ms var(--md-ease);
+}
+html[data-bs-theme] .bg-theme-auto:hover {
+    box-shadow: var(--md-elev-3);
+    transform: translateY(-2px);
+}
+
+/* Tombol kecil: bentuk pill penuh ala MD (chip/assist button) */
+.btn-sm.rounded-4 { border-radius: var(--md-radius-xl) !important; }
+
+/* Navbar bawah: sudut atas membulat seperti MD bottom bar/surface */
+.navbar.fixed-bottom,
+.navbar.sticky-bottom {
+    border-top-left-radius: var(--md-radius-lg) !important;
+    border-top-right-radius: var(--md-radius-lg) !important;
+    box-shadow: var(--md-elev-2) !important;
+}
+
+/* Overlay judul: kartu MD terangkat */
+html[data-bs-theme] .bg-overlay-auto {
+    border-radius: var(--md-radius-lg) !important;
+    box-shadow: var(--md-elev-2);
 }
