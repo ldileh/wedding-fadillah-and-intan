@@ -63,10 +63,15 @@ Tema terpilih: **merah-emas** — sudah di-merge ke `main` sebagai tema utama. T
 
 ## 🟣 To Do — Backend ucapan/RSVP (Google Spreadsheet, gratis)
 
-- ⬜ Buat Google Sheet + tab `ucapan` (kolom: timestamp, nama, kehadiran, jumlah_tamu, ucapan)
-- ⬜ Google Apps Script Web App (doGet/doPost) → deploy, salin URL — lihat skill `database-spreadsheet`
-- ⬜ Tambah form ucapan/RSVP + JS (`js/app/guest/rsvp.js`) yang POST ke GAS, lalu `npm run build`
-- ⬜ (opsional) Tampilkan daftar ucapan via GET
+Sheet: `1CvmSRiXsxMbQqQdV6TctZzr6EjK01HrIjjI7ghBKPyY`
+
+- ✅ **Form ucapan/RSVP self-contained** (`js/app/guest/rsvp.js` + section `#rsvp` di index.html): nama, kehadiran, jumlah tamu, ucapan → POST ke GAS (`Content-Type: text/plain`, tanpa preflight)
+- ✅ **Tampilkan daftar ucapan** via GET (render kartu di `#rsvp-list`)
+- ✅ Section otomatis **disembunyikan** bila `data-gas` kosong (tidak error) — diverifikasi via harness DOM-stub (4 kasus PASS)
+- ✅ Kode Apps Script siap tempel: `apps-script-ucapan.gs`
+- ⬜ **[MANUAL/BROWSER]** Buka Sheet → buat tab `ucapan` (header: timestamp, nama, kehadiran, jumlah_tamu, ucapan)
+- ⬜ **[MANUAL/BROWSER]** Extensions → Apps Script → tempel `apps-script-ucapan.gs` → Deploy Web App (Execute as *Me*, access *Anyone*) → salin URL
+- ⬜ **[MANUAL]** Isi URL ke `data-gas` pada `<body>` di index.html → `npm run build`
 
 ## ⚪ Opsional / Nanti
 

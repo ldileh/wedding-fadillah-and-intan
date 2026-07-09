@@ -1,6 +1,7 @@
 import { video } from './video.js';
 import { image } from './image.js';
 import { audio } from './audio.js';
+import { rsvp } from './rsvp.js';
 import { progress } from './progress.js';
 import { util } from '../../common/util.js';
 import { bs } from '../../libs/bootstrap.js';
@@ -320,6 +321,7 @@ export const guest = (() => {
         lang.init();
         offline.init();
         comment.init();
+        rsvp.init();
         progress.init();
 
         config = storage('config');
@@ -409,6 +411,7 @@ export const guest = (() => {
             util,
             theme,
             comment,
+            rsvp,
             guest: {
                 open,
                 modal,
