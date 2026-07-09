@@ -1,6 +1,6 @@
 # 📋 Board Pengerjaan — Undangan Fadillah & Intan
 
-Pernikahan: **Senin, 27 September 2027** · Repo template: undangan v4.x
+Pernikahan: **Minggu, 27 September 2026** · Repo template: undangan v4.x
 
 Legenda: ✅ selesai · 🔄 sedang dikerjakan · ⬜ belum · ⏸️ ditunda
 
@@ -9,33 +9,49 @@ Legenda: ✅ selesai · 🔄 sedang dikerjakan · ⬜ belum · ⏸️ ditunda
 ## 🟢 Done
 
 - ✅ Konfigurasi awal project (nama, tanggal, judul & meta SEO/OG)
-- ✅ Countdown `data-time` = `2027-09-27 10:00:00`
-- ✅ Cover & hero: "Fadillah & Intan — Senin, 27 September 2027"
+- ✅ Countdown `data-time` = `2026-09-27 08:00:00`
+- ✅ Cover & hero: "Fadillah & Intan — Minggu, 27 September 2026"
+- ✅ **Tanggal & hari diperbaiki**: 27 Sep 2026 = **Minggu** (semula tertulis Senin 2027) — teks + `data-time` konsisten
 - ✅ Data mempelai pria (Fadillah) + orang tua
+- ✅ **Data orang tua Intan** — Bapak Odin Komarudin & Ibu Enin (menggantikan "lorem ipsum")
 - ✅ Lokasi acara + link Google Maps (Villa Kampung Sawah Cimande, Bogor)
-- ✅ Nama pemilik rekening (BCA → Intan, Qris/Gift → Fadillah)
+- ✅ **Rekening Transfer** — 2 kartu: Intan (Mandiri `1330032843542`) & Fadillah (Bank Jago `101479798704`)
+- ✅ **Blok QRIS dihapus** (tidak dipakai)
+- ✅ **No. HP / e-wallet gift Fadillah** — `08221884277` (teks + `data-copy`)
+- ✅ **Card Gift Intan Anjani** — telp `+62 821-2306-4682` + alamat (Kp. Lembur Situ, Cimande Hilir, Caringin, Bogor)
 - ✅ Fitur komentar dinonaktifkan (hapus `data-url`/`data-key`), confetti aktif
+- ✅ Jam Akad & Resepsi — Akad 08.00 WIB, Resepsi 11.00 WIB
 - ✅ `npm install` + `npm run build` → `dist/` terbentuk, htmlhint lolos
 - ✅ AGENTS.md, PROJECT_BOARD.md, skill kustom
+- ✅ Konfigurasi debug VS Code (`.vscode/launch.json`)
+
+---
+
+## 🎨 Tema tampilan (branch terpisah dari `main`)
+
+`main` dijaga netral (tanpa tema). Tiap tema = warna + Material Design (radius seragam + elevasi berlapis), CSS-only.
+
+- ✅ `tema/merah-putih` — putih–merah, aksen merah
+- ✅ `tema/merah-emas` — merah/maroon, aksen emas, teks putih
+- ✅ `tema/biru-emas` — biru/navy, aksen emas, teks putih
+- ✅ `tema/hijau-sage` — hijau hutan, aksen krem, teks putih
+- ✅ `tema/ungu-perak` — ungu gelap, aksen perak, teks putih
+- ⬜ **Pilih 1 tema final** → merge ke `main`
+- ⬜ (opsional) Set `data-bs-theme="light"` di tema terpilih agar nuansa warna langsung tampil (tak ikut mode gelap OS)
 
 ---
 
 ## 🔴 To Do — Konten wajib
 
-- ⬜ **Orang tua Intan** — ganti "Bapak/Ibu lorem ipsum" di section `#bride`
-- ⬜ **No. rekening BCA** — ganti `1234567891234` (teks + atribut `data-copy`)
-- ✅ **No. HP / e-wallet gift** — `08221884277` (teks + `data-copy`)
 - ⬜ **Foto mempelai** — `assets/images/cowo.webp` (Fadillah), `cewe.webp` (Intan)
 - ⬜ **Foto cover / hero** — `assets/images/bg.webp`
 - ⬜ **Narasi Kisah Cinta** — tulis ulang cerita asli (nama sudah otomatis benar)
-- ✅ **Jam Akad & Resepsi** — Akad 08.00 WIB, Resepsi 11.00 WIB (countdown `data-time` disesuaikan ke 08.00)
 
 ## 🟡 To Do — Media & aset
 
 - ⬜ Foto galeri (`#gallery`) — ganti gambar template
 - ⬜ Video Kisah Cinta (`assets/video/`) — opsional, hapus jika tidak dipakai
 - ⬜ Musik latar (`assets/music/pure-love-304010.mp3`) — ganti jika perlu
-- ⬜ QRIS donate image (`assets/images/donate.png`)
 
 ## 🔵 To Do — Deploy (GitHub Pages, dijalankan MANUAL via Actions)
 
@@ -65,5 +81,6 @@ Legenda: ✅ selesai · 🔄 sedang dikerjakan · ⬜ belum · ⏸️ ditunda
 
 ### Catatan
 
+- Data undangan (nama, tanggal, rekening, gift) diubah di `main` lalu di-sync (merge) ke semua branch tema agar konsisten.
 - Setelah edit `js/`, jalankan `npm run build`. Sebelum deklarasi selesai, jalankan `npm run lint:html`.
 - Jangan commit/push tanpa diminta.
