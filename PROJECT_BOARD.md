@@ -27,17 +27,14 @@ Legenda: ✅ selesai · 🔄 sedang dikerjakan · ⬜ belum · ⏸️ ditunda
 
 ---
 
-## 🎨 Tema tampilan (branch terpisah dari `main`)
+## 🎨 Tema tampilan
 
-`main` dijaga netral (tanpa tema). Tiap tema = warna + Material Design (radius seragam + elevasi berlapis), CSS-only.
+Tema terpilih: **merah-emas** — sudah di-merge ke `main` sebagai tema utama. Tiap tema = warna + Material Design (radius seragam + elevasi berlapis), CSS-only.
 
-- ✅ `tema/merah-putih` — putih–merah, aksen merah
-- ✅ `tema/merah-emas` — merah/maroon, aksen emas, teks putih
-- ✅ `tema/biru-emas` — biru/navy, aksen emas, teks putih
-- ✅ `tema/hijau-sage` — hijau hutan, aksen krem, teks putih
-- ✅ `tema/ungu-perak` — ungu gelap, aksen perak, teks putih
-- ⬜ **Pilih 1 tema final** → merge ke `main`
-- ⬜ (opsional) Set `data-bs-theme="light"` di tema terpilih agar nuansa warna langsung tampil (tak ikut mode gelap OS)
+- ✅ **`tema/merah-emas` → merged ke `main`** (tema utama undangan)
+- ✅ **Default `data-bs-theme="light"`** — nuansa merah-emas langsung tampil (tamu tetap bisa toggle dark)
+- ✅ Branch alternatif (arsip): `tema/merah-putih`, `tema/biru-emas`, `tema/hijau-sage`, `tema/ungu-perak`
+- ⬜ (opsional) Hapus branch tema alternatif bila sudah tak dipakai (lokal + remote)
 
 ---
 
